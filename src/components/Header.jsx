@@ -1,18 +1,10 @@
 import { MdPostAdd, MdMessage } from 'react-icons/md';
 import classes from './Header.module.css';
-import NewPost from './NewPost';
-import { useState } from 'react';
 
 
-function Header(){
-    const [isNewPostVisible, setNewPostVisible]=useState(false)
 
-    const showPostHandler=()=>{
-        setNewPostVisible(true)
-    }
-    const hidePostHandler=()=>{
-        setNewPostVisible(false)
-    }
+function Header( props){
+    
 
     return(
         <>
@@ -22,13 +14,13 @@ function Header(){
             React Post List
         </h1>
         <p>
-            <button className={classes.button} onClick={showPostHandler}>
+            <button className={classes.button} onClick={props.showPost}>
             <MdPostAdd size={18} />
             New Post
             </button>
         </p>
         </header>
-        {isNewPostVisible && <NewPost cancleHandler = {hidePostHandler}></NewPost>}
+        
         </>
 
         
